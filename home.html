@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Kode Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">  
+    <title>Dhruv Patel</title>
+    <style>
+/* body */
+
+    </style>
+</head>
+<body>
+    <header>
+            <nav>   
+                <div class="logo"><a  href="/">Dhruv</a> </div>                
+                <div class="navbar">
+                  <a href="">About me</a>
+                  <a href="work.html">Work</a>
+                  <a href="media.html">Media</a>
+                  <!-- <a href="{% url 'contact' %}">Contact me</a>
+                  <a href="{% url 'download_resume' %}">Resume</a>
+                  <a href="{% url 'resume_contact' %}">Resume</a> -->
+                  </div>
+                </div>
+              </nav>
+    </header>
+
+    <div class="container">
+        <div class="home-container">
+            <div class="bio-container">
+                <h2 style="font-family: Kode Mono;">Hey, I am <b style="color: #7B66FF;">Dhruv</b>&#128075;</h2>
+                <p>With 
+                </p>
+                </div>
+            <div class="main-img">
+                <img class="main-img" src="Media/dp.png" alt="">
+            </div>
+        </div>
+        
+        <h2>Education</h2>
+        
+        <section class="education">
+            <div class="banner">
+              <ul>
+                <h3>IIT Bombay</h3>
+                <h4>B.Tech Mechanical</h4>
+                <h4>2021-2025</h4>
+              </ul>
+            </div>
+        </section>
+        
+        <h2>My Skills</h2>
+        
+        <section class="skills">
+            <li>Video Editing</li>
+            <li>Web Design</li>
+            <li>Web Development</li>
+        </section>
+        
+        <section id="skills">
+          <h2>Skills</h2>
+          <ul class="skill-list">
+            <li>
+              <h3>{{ skill.skill }}</h3>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;"></div>
+              </div>
+            </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <div class="thanks">
+          <p>Thanks for stopping by,</p>
+          <p>I'm always eager to learn and explore new opportunities to grow.</p>
+        </div>
+        <div class="social">
+            <li>              
+              <a href="https://www.linkedin.com/in/dhruv-patel-8a5a74222/" target="_blank">
+                <img src="Media/linkedin.png" alt="LinkedIn" class = "social-icon">
+                LinkedIn</a>
+            </li>
+            <li>              
+              <a href="https://www.instagram.com/dhruv_patel953/" target="_blank">
+                <img src="Media/instagram.png" alt="Instagram" class = "social-icon">
+                Instagram</a>
+            </li>
+
+        </div>
+        <div class="cyear">© 2024</div>
+
+      </div>
+
+
+    
+</body>
+</html>

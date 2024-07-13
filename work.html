@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Kode Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">  
+    <title>Work</title>
+</head>
+<body>
+    <header>
+        <nav>   
+            <div class="logo"><a  href="/">Dhruv</a> </div>                
+            <div class="navbar">
+              <a href="home.html">About me</a>
+              <a href="work.html">Work</a>
+              <a href="media.html">Media</a>
+              <!-- <a href="{% url 'contact' %}">Contact me</a>
+              <a href="{% url 'download_resume' %}">Resume</a>
+              <a href="{% url 'resume_contact' %}">Resume</a> -->
+              </div>
+            </div>
+          </nav>
+</header>
+
+<div class="container">
+    <section class="work-experience">
+        <h2>Work Experience</h2>
+        <ul class="timeline">
+            <h2>Professional Experience</h2>
+            <div class = "company">
+                <i><img class = "company-icon" src="Media/lang-logo.svg" alt="Languify"></i>
+                <h3 class= "company-name">Languify</h3>
+                <div class="in-company-content">
+                <p>Growth & Product internship</p>
+                <p>April'23 - July'23</p>
+                </div>
+            </div>
+            <div class = "company">
+                <i><img class = "company-icon" src="Media/cruxe.jpeg" alt="Cruxe"></i>
+                <h3 class= "company-name">Cruxe </h3>
+                <div class="in-company-content">
+                <p>Marketing internship</p>
+                <p>Jan'22 - March'22</p>
+                </div>
+            </div>
+
+            
+            <h2>Position of responsibility</h2>
+            <div class = "company">
+                <i ><img class = "company-icon" src="Media/itc.png" alt="ITC"></i>
+                <h3 class= "company-name" >Institute Technical Council</h3>
+                <div class="in-company-content">
+                    <p>Media Manager</p>
+                    <p>April'22 - April'23</p>
+                </div>
+            </div>
+            <div class = "company">
+                <i ><img class = "company-icon" src="Media/sarc.png" alt="SARC"></i>
+                <h3 class= "company-name" >Student Alumni Relation Cell</h3>
+                <div class="in-company-content">
+                    <p>Design Coordinator</p>
+                    <p>Jun'21 - March'22</p>
+
+                </div>
+            </div>
+    
+            </ul>
+    </section>
+    <section class="projects">
+    
+        <h2>Projects</h2>
+        
+        <div class="project-grid">    
+          <div class = "project-card">
+                  <img class="project-image" src="{% static '/default-project.jpg' %}" alt="Project 3">
+                  <h4>{{ project.title }}</h4>
+                  <p> {{project.description}}</p>
+                  <a href="#" class="button">View Project</a>
+          </div>
+          </div>
+      </section>
+    </div>
+    
+    <div class="footer">
+        <div class="thanks">
+          <p>Thanks for stopping by,</p>
+          <p>I'm always eager to learn and explore new opportunities to grow.</p>
+        </div>
+        <div class="social">
+            <li>              
+              <a href="https://www.linkedin.com/in/dhruv-patel-8a5a74222/" target="_blank">
+                <img src="Media/linkedin.png" alt="LinkedIn" class = "social-icon">
+                LinkedIn</a>
+            </li>
+            <li>              
+              <a href="https://www.instagram.com/dhruv_patel953/" target="_blank">
+                <img src="Media/instagram.png" alt="Instagram" class = "social-icon">
+                Instagram</a>
+            </li>
+
+        </div>
+        <div class="cyear">© 2024</div>
+</body>
+</html>
