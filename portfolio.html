@@ -15,11 +15,10 @@
 <body>
     <header>
             <nav>   
-                <div class="logo"><a  href="/">Dhruv</a> </div>                
+                <div class="logo"><a  href="home.html">Dhruv</a> </div>                
                 <div class="navbar">
-                  <a href="home.html">About me</a>
-                  <a href="work.html">Work</a>
-                  <a href="{% url 'content' %}">Media</a>
+                  <a href="home.html">Home</a>
+                  <a href="">Portfolio</a>
                   <!-- <a href="{% url 'contact' %}">Contact me</a>
                   <a href="{% url 'download_resume' %}">Resume</a>
                   <a href="{% url 'resume_contact' %}">Resume</a> -->
@@ -27,6 +26,87 @@
                 </div>
               </nav>
     </header>
+
+    <div class="portfolio">
+      <header>
+          <h1>My Portfolio</h1>
+          <p>Explore my diverse projects ranging from technical innovations to creative video editing.</p>
+      </header>
+
+      <section id="technical-projects" class="project-section">
+          <h2>Technical Projects</h2>
+          <div class="project-list">
+              <div class="project-card">
+                  <img src="cloud-optimization.png" alt="Cloud Optimization">
+                  <h3>Cloud Computing Optimization</h3>
+                  <p>Developed a model to optimize AWS EC2 costs, reducing expenses by up to 60%.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <div class="project-card">
+                  <img src="call-audit.png" alt="Automated Call Audit">
+                  <h3>Automated Call Audit System</h3>
+                  <p>Created a sentiment analysis tool for contact centers using NLP and ASR.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <!-- Add more technical project cards here -->
+          </div>
+      </section>
+
+      <section id="product-projects" class="project-section">
+          <h2>Product Projects</h2>
+          <div class="project-list">
+              <div class="project-card">
+                  <img src="languify-strategy.png" alt="Languify Strategy">
+                  <h3>Languify Product Strategy</h3>
+                  <p>Optimized user acquisition campaigns and developed a comprehensive product strategy.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <div class="project-card">
+                  <img src="cruxe-marketing.png" alt="Cruxe Marketing">
+                  <h3>Cruxe Marketing Strategy</h3>
+                  <p>Launched a content recommendation system and executed successful influencer campaigns.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <!-- Add more product project cards here -->
+          </div>
+      </section>
+
+      <section id="video-editing" class="project-section">
+          <h2>Video Editing Work</h2>
+          <div class="video-list">
+              <div class="video-card">
+                  <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+                  <h3>Short Film GC</h3>
+                  <p>2nd Place in Short Film GC with Best Visuals as DOP & Editor.</p>
+              </div>
+              <div class="video-card">
+                  <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+                  <h3>E-Summit'23 TV Ad</h3>
+                  <p>Directed TV ad for E-Summit’23, aired 16 times on NDTV reaching 5M+ viewers.</p>
+              </div>
+              <!-- Add more video editing cards here -->
+          </div>
+      </section>
+
+      <section id="other-work" class="project-section">
+          <h2>Other Achievements</h2>
+          <div class="project-list">
+              <div class="project-card">
+                  <img src="product-pitch.png" alt="Product Pitch">
+                  <h3>Pan-IIT Product Pitch</h3>
+                  <p>Secured 2nd place in Pan-IIT Product Pitch Competition with a ₹40K prize.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <div class="project-card">
+                  <img src="filmmaking.png" alt="Filmmaking">
+                  <h3>Filmmaking Achievements</h3>
+                  <p>1st place in Freshiezza Spoof Video Competition and 1st in NCC Short Filmmaking Competition.</p>
+                  <a href="#">Read More</a>
+              </div>
+              <!-- Add more other work cards here -->
+          </div>
+      </section>
+  </div>
 
     <div class="container">
 <h3>My videos</h3>
