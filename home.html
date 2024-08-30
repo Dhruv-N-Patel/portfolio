@@ -11,18 +11,29 @@
     <link rel="stylesheet" href="style.css">  
     <title>Dhruv Patel</title>
     <style>
-/* body */
-
-    </style>
+      .parallax {
+        /* The image used */
+        background-image: url("Media/hero_design.png");
+      
+        /* Set a specific height */
+        height:85vh;
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      </style>
 </head>
 <body>
     <header>
             <nav>   
-                <div class="logo"><a  href="/">Dhruv</a> </div>                
+                <div class="logo"><a  href="/">Dhruv Patel</a> </div>                
                 <div class="navbar">
-                  <a href="">About me</a>
+                  <a href="">Home</a>
                   <a href="work.html">Work</a>
-                  <a href="media.html">Media</a>
+                  <a href="media.html">Portfolio</a>
                   <!-- <a href="{% url 'contact' %}">Contact me</a>
                   <a href="{% url 'download_resume' %}">Resume</a>
                   <a href="{% url 'resume_contact' %}">Resume</a> -->
@@ -30,22 +41,43 @@
                 </div>
               </nav>
     </header>
-
+    <div class="parallax">
+      <section id="hero">
+        <div class="hero-container">
+        <!-- <img class="hero-img" src="Media/heroimage.png" alt=""> -->
+    
+        </div>
+        <!-- <div class = "wrapper">
+          <p class="intro">Hi, I'm Dhruv Patel. A Product Innovator and Creative Storyteller who believes that every great story starts with a leap of faith.</p>
+        </div> -->
+    
+        </section>
+    </div>
+    
     <div class="container">
         <div class="home-container">
             <div class="bio-container">
                 <h2 style="font-family: Kode Mono;">Hey, I am <b style="color: #7B66FF;">Dhruv</b>&#128075;</h2>
-                <p>With 
-                </p>
+                <p>A Product enthusiast and Creative </p>
+                 <p>Storyteller who believes that every</p>  
+                  <p>story starts with a leap of faith. </p>
                 </div>
-            <div class="main-img">
+            <!-- <div class="main-img">
                 <img class="main-img" src="Media/dp.png" alt="">
-            </div>
+            </div> -->
+        </div>
+        <div class = "about-me">
+          <h2>About me</h2>
+          <p>I’m a final year mechanical engineering student at IIT Bombay with a flair for product management and creative solutions. My experience spans from driving growth at Languify Pvt. Ltd. to launching impactful content systems at Cruxe Technology. I excel in optimizing strategies, leading projects, and creating engaging media.
+</p>
+<p>
+            With a strong background in technical and creative fields, I’m passionate about solving complex problems and exploring new innovations. Dive into my portfolio to see how I combine these skills to make a difference!</p>
+
         </div>
         
-        <h2>Education</h2>
-        
         <section class="education">
+          <h2>Education</h2>
+
             <div class="banner">
               <ul>
                 <h3>IIT Bombay</h3>

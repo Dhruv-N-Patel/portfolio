@@ -122,14 +122,15 @@ main {
 }
 
 .home-container {
+  margin-top: -500px;
+
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.main-img {
-    width: 400px;
-    border-radius: 0px 50px 0px 50px;
+.about-me{
+  margin-top: 220px;
 }
 
 .bio-container {
@@ -413,7 +414,7 @@ main {
   }      
 
   .education {
-    margin-top: 50px;
+    margin-top: 450px;
     overflow: hidden; /* Enable smooth scrolling within the section */
   }
   .banner {
@@ -425,3 +426,44 @@ main {
     opacity: 0; /* Initially make banners invisible */
     transition: all 0.8s ease-in-out; /* Transition all properties (including opacity) */
   }
+
+  #hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-img {
+    width: 80%;
+    margin-top: -180px;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container, preserving aspect ratio */
+}
+
+.hero-content {
+  position: relative;
+  top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1; /* Ensure content is above the image */
+}
+
+.wrapper{
+  position: relative;
+    width: 60%;
+    max-width: 800px;
+}
