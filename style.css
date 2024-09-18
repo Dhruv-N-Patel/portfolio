@@ -26,8 +26,8 @@ body.dark-mode {
 }
 
 .container {
-    margin: 0 auto;
-    padding: 0 250px;
+    margin: 0 16.3vw;
+    padding: 0 auto;
     box-sizing: border-box;
 }
 /* nav bar              */
@@ -42,8 +42,10 @@ nav {
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
-      margin-bottom: 20px;
-      padding: 20px 220px;
+      margin-bottom: 30px;
+      margin-left: 15vw;
+      margin-right: 15vw;
+      padding: 20px auto;
       background-color: #FAFAF6;
     }
     
