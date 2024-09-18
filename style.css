@@ -691,8 +691,8 @@ header p {
 }
 
 .company-logo {
-  max-width: 100px;
-  height: auto;
+  max-width: auto;
+  height: 80px;
   filter: grayscale(100%);
   transition: filter 0.3s;
 }
