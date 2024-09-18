@@ -29,10 +29,11 @@
 <body>
     <header>
             <nav>   
-                <div class="logo"><a  href="/">Dhruv Patel</a> </div>                
+                <div class="logo"><a  href="home.html">Dhruv Patel</a> </div>                
                 <div class="navbar">
-                  <a href="">Home</a>
+                  <a href="home.html">Home</a>
                   <a href="portfolio.html">Portfolio</a>
+
                   <!-- <a href="{% url 'contact' %}">Contact me</a>
                   <a href="{% url 'download_resume' %}">Resume</a>
                   <a href="{% url 'resume_contact' %}">Resume</a> -->
@@ -86,20 +87,14 @@
   Product Growth Intern at Languify Pvt. Ltd.: Spearheaded growth initiatives, optimized acquisition campaigns, and developed engaging product strategies.
   </p>
   <p>Growth Strategy Intern at Cruxe Technology: Launched an innovative content recommendation system and collaborated on successful influencer marketing campaigns.
-    </p>
-    <p>
-      Cloud Computing Optimization: Developed a model to reduce AWS EC2 costs by up to 60%.
-    
-    </p>
-<p>
-  Automated Call Audit System: Created a multilingual tool for sentiment analysis using advanced NLP techniques.
-</p>
+  </p>
+
 <p>
   Each experience has been a stepping stone in my journey, fueling my passion for product management and growth.
-
 </p>
         </div>
 
+        <div class="container">
           <section class="work-experience">
               <h2>Work Experience</h2>
               <ul class="timeline">
@@ -143,27 +138,21 @@
           
                   </ul>
           </section>
-        
-        <!-- <section class="education">
-          <h2>Education</h2>
-
-            <div class="banner">
-              <ul>
-                <h3>IIT Bombay</h3>
-                <h4>B.Tech Mechanical</h4>
-                <h4>2021-2025</h4>
-              </ul>
-            </div>
-        </section> -->
-        
-        <!-- <h2>My Skills</h2>
-        
-        <section class="skills">
-            <li>Video Editing</li>
-            <li>Web Design</li>
-            <li>Web Development</li>
-        </section> -->
-        
+          <section class="projects">
+          
+              <h2>Projects</h2>
+              
+              <div class="project-grid">    
+                <div class = "project-card">
+                        <img class="project-image" src="{% static '/default-project.jpg' %}" alt="Project 3">
+                        <h4>{{ project.title }}</h4>
+                        <p> {{project.description}}</p>
+                        <a href="#" class="button">View Project</a>
+                </div>
+                </div>
+            </section>
+          </div>
+         
         <section id="skills">
           <h2>Skills</h2>
           <ul class="skill-list">
