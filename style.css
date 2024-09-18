@@ -618,7 +618,11 @@ header p {
   padding: auto;
   padding-left: -10px;
   max-width: 600px;
-  height: 41vh;
+  height: 300px;
+}
+.large-screen h4{
+  margin-top: -40px;
+  margin-left: 10px;
 }
 
 .vertical-screen {
