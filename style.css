@@ -6,6 +6,44 @@ body {
     font-size: 18px;
     font-style: normal;
 }
+/* nav bar              */
+.logo {
+  justify-content:end ;
+  font-family: 'Kode Mono';
+  font-size: 22px;
+  font-weight: bold;
+  color: #15F5BA;
+}
+header{
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 1000;
+    background-image: linear-gradient(to right, #1c1a27 , #161828);
+  }
+nav {  
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    background-image: linear-gradient(to right, #221f32 , #1f2933);
+  }
+  
+nav a {
+    text-decoration: none;
+    color:#d6d6d6;
+    padding: 10px 30px;
+  }
+  
+nav a:hover {
+    color: #afa2ff;
+  }
+.navbar{
+  justify-content: end;
+}
 
 :root {
   --background-color: #f8fafc;
@@ -30,37 +68,7 @@ body.dark-mode {
     padding: 0 auto;
     box-sizing: border-box;
 }
-/* nav bar              */
-.logo {
-    justify-content:end ;
-    font-family: 'Kode Mono';
-    font-size: 22px;
-    font-weight: bold;
-    color: #15F5BA;
-  }
-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      margin-left: 15vw;
-      margin-right: 15vw;
-      padding: 20px auto;
-      background-color: #FAFAF6;
-    }
-    
-nav a {
-      text-decoration: none;
-      color:#555;
-      padding: 10px 30px;
-    }
-    
-nav a:hover {
-      color: #7B66FF;
-    }
-.navbar{
-    justify-content: end;
-  }
+
 
 /* form */
 .form-container {
@@ -142,7 +150,7 @@ main {
 }
 
 .home-container {
-  margin-top: -500px;
+  margin-top: -450px;
 
     display: flex;
     justify-content: space-between;
@@ -387,7 +395,7 @@ main {
 }
 /* footer */
 .footer {
-  background-image: linear-gradient(to right, #443988 , #040d48);
+  background-image: linear-gradient(to right, #221f32 , #1f2933);
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -503,17 +511,16 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
-header h1 {
+.container h1 {
   margin: 0;
   color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: auto;
 }
 
-header p {
+.container p {
   color: #7f8c8d;
 }
 
@@ -705,4 +712,51 @@ header p {
 
 .company-logo:hover {
   filter: grayscale(0%);
+}
+
+/* Resume container for positioning */
+.resume-container {
+    text-align: center;
+    margin: 50px;
+}
+
+/* Styling for the download button */
+.resume-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #7B66FF;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+/* Icon beside text */
+.resume-button .icon {
+    font-size: 20px;
+    margin-left: 10px;
+    transition: margin-left 0.2s;
+}
+
+/* Hover effect */
+.resume-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Moving the icon slightly on hover */
+.resume-button:hover .icon {
+    margin-left: 15px;
+}
+
+/* Responsive: for smaller screens */
+@media (max-width: 768px) {
+    .resume-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
 }
