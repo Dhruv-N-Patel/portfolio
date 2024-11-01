@@ -39,7 +39,7 @@
         <section id="home" class="hero">
             <div class="parallax">
             <div class="hero-content">
-                <h1 id="hero-title">Dhruv Patel</h1>
+                <h1 id="hero-title">Hello, I'm Dhruv Patel</h1>
                 <p class="tagline">Mechanical Engineer | Aspiring Project Manager | Filmmaker & Editor</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn">View My Projects</a>
@@ -236,27 +236,30 @@
         </section>
 
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" required>
-                        <label>Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" required>
-                        <label>Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" required></textarea>
-                        <label>Message</label>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-        </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-form">
+            <form id="contactForm" action="https://formspree.io/f/mjkvywzg" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" required>
+                    <label>Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" required></textarea>
+                    <label>Message</label>
+                </div>
+                <!-- Add a hidden input for the redirect URL after submission -->
+                <input type="hidden" name="_next" >
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
 
     </main>
 
