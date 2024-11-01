@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dhruv Patel - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Portfolio of Dhruv Patel, a mechanical engineering student with a passion for product management and storytelling.">
+    <meta name="keywords" content="Dhruv Patel, Mechanical Engineer, Product Management, Filmmaker, Portfolio">
+    <meta name="author" content="Dhruv Patel">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style_new.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Kode+Mono|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+            <div class="logo"><a href="#home">Dhruv Patel</a></div>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#filmmaking">Filmmaking</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="parallax">
+            <div class="hero-content">
+                <h1 id="hero-title">Dhruv Patel</h1>
+                <p class="tagline">Mechanical Engineer | Aspiring Project Manager | Filmmaker & Editor</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn">View My Projects</a>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
+            </div>
+            <!-- Parallax Background -->
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <div class="about-me-container">
+                <div class="about-content">
+                    <p>I’m a final year mechanical engineering student at IIT Bombay with a flair for product management and creative solutions. My experience spans from driving growth at Languify Pvt. Ltd. to launching impactful content systems at Cruxe Technology. I excel in optimizing strategies, leading projects, and creating engaging media.</p>
+                    <p>With a strong background in technical and creative fields, I’m passionate about solving complex problems and exploring new innovations. Dive into my portfolio to see how I combine these skills to make a difference!</p>
+                </div>
+                <div class="about-image">
+                    <img src="Media/dp.png" alt="Dhruv Patel">
+                </div>
+            </div>
+            <!-- Interactive Timeline -->
+            <!-- <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>Languify</h3>
+                        <p>Growth & Product Internship</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Cruxe</h3>
+                        <p>Marketing Internship</p>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <div class="resume-container">
+            <a href="Media/dhruv_patel_resume.pdf" download="Dhruv_Patel_Resume.pdf" class="resume-button">
+                <span class="text">Download My Resume</span>
+                <span class="icon">📄</span>
+            </a>
+        </div>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-container">
+                <!-- Experience Item -->
+                <div class="company">
+                    <img class="company-icon" src="Media/lang-logo.svg" alt="Languify">
+                    <div class="company-details">
+                        <h3>Languify</h3>
+                        <p><strong>Growth & Product Internship</strong></p>
+                        <p>April 2023 - July 2023</p>
+                    </div>
+                </div>
+                <!-- Experience Item -->
+                <div class="company">
+                    <img class="company-icon" src="Media/cruxe.jpeg" alt="Cruxe">
+                    <div class="company-details">
+                        <h3>Cruxe</h3>
+                        <p><strong>Marketing Internship</strong></p>
+                        <p>January 2022 - March 2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Positions of Responsibility</h2>
+            <div class="experience-container">
+                <!-- Position Item -->
+                <div class="company">
+                    <img class="company-icon" src="Media/interiittech.png" alt="Inter IIT Tech Meet">
+                    <div class="company-details">
+                        <h3>Inter IIT Tech Meet 13.0</h3>
+                        <p><strong>Organizing Team - Media Head</strong></p>
+                        <p>August 2024 - December 2024</p>
+                    </div>
+                </div>
+                <!-- Position Item -->
+                <div class="company">
+                    <img class="company-icon" src="Media/itc.png" alt="ITC">
+                    <div class="company-details">
+                        <h3>Institute Technical Council</h3>
+                        <p><strong>Media Manager</strong></p>
+                        <p>April 2023 - April 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+        <button class="filter-btn" data-category="all">All</button>
+        <button class="filter-btn" data-category="mechanical">Mechanical Engineering</button>
+        <button class="filter-btn" data-category="coding">Software</button>
+        <button class="filter-btn" data-category="product">Product</button>
+        <!-- Add more categories if needed -->
+    </div>
+    <div class="project-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card coding">
+            <img class="project-image" src="Media/eukreta.jpg" alt="EuKreta Project" loading="lazy">
+            <h3>EuKreta | Automated Call Audit</h3>
+            <p><strong>Duration:</strong> Sep 2023 – Nov 2023</p>
+            <p><strong>Overview:</strong> Developed a multilingual sentiment analysis tool for contact centers, leveraging NLP and ASR technologies.</p>
+            <p><strong>Skills Used:</strong> BERT models, Google Speech-to-Text (STT), Python, Figma</p>
+            <p><strong>Impact:</strong> Enhanced contact center efficiency by automating sentiment analysis and providing actionable insights into customer interactions.</p>
+            <a href="https://github.com/Dhruv-N-Patel/eukreta_repo" class="btn">View on GitHub</a>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="project-card coding">
+            <img class="project-image" src="Media/growthing.jpg" alt="Growthing Project" loading="lazy">
+            <h3>Growthing | Project Assistant Website</h3>
+            <p><strong>Duration:</strong> May 2023 – Jun 2023</p>
+            <p><strong>Overview:</strong> Designed a web platform utilizing generative AI for personalized learning and curated a project repository across multiple industries.</p>
+            <p><strong>Skills Used:</strong> Django, JavaScript, HTML, CSS, GPT models</p>
+            <p><strong>Impact:</strong> Streamlined access to 60+ industry-relevant projects, enhancing the educational platform's ability to deliver personalized learning content.</p>
+            <a href="https://github.com/Dhruv-N-Patel/Growthing" class="btn">View on GitHub</a>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="project-card product">
+            <img class="project-image" src="Media/sharechat.jpg" alt="ShareChat Product Analysis" loading="lazy">
+            <h3>ShareChat Product Analysis</h3>
+            <p><strong>Duration:</strong> July 2024</p>
+            <p><strong>Overview:</strong> Analyzed user behavior and growth metrics to optimize ShareChat’s product strategy for various Indian demographic tiers.</p>
+            <p><strong>Skills Used:</strong> AARRR Metrics, GTM Strategy</p>
+            <p><strong>Impact:</strong> Developed a refined growth strategy and optimized pricing and onboarding processes based on research insights.</p>
+            <a href="Media/ShareChat_Product_Analysis.pdf" class="btn">View Report</a>
+        </div>
+        <!-- Project Card 4 -->
+        <div class="project-card mechanical">
+            <img class="project-image" src="Media/drone_project.jpg" alt="Semi-Autonomous Delivery Drone" loading="lazy">
+            <h3>Semi-Autonomous Delivery Drone</h3>
+            <p><strong>Duration:</strong> Mar 2022 – Jun 2022</p>
+            <p><strong>Overview:</strong> Built a custom-controlled drone system for automated deliveries with real-time navigation and payload management.</p>
+            <p><strong>Skills Used:</strong> Robot Operating System (ROS), Gazebo, Raspberry Pi</p>
+            <p><strong>Impact:</strong> Engineered a delivery drone with a 1kg+ payload capability, proving the feasibility of a semi-autonomous delivery system.</p>
+            <a href="https://youtu.be/VJh12FfiOp4" class="btn">View Video</a>
+        </div>
+        <!-- Project Card 7 -->
+        <div class="project-card mechanical">
+            <img class="project-image" src="Media/robotic_arm.jpg" alt="Robotic Arm Design" loading="lazy">
+            <h3>Robotic Arm Design and Simulation</h3>
+            <p><strong>Duration:</strong> Nov 2022 – Jan 2023</p>
+            <p><strong>Overview:</strong> Designed and simulated a 2 axis motorised head tripod for remote operations.</p>
+            <p><strong>Skills Used:</strong> SolidWorks, Control Systems</p>
+            <p><strong>Impact:</strong> Create a compact tripod with remote controlled head for content creators.</p>
+            <a href="Media/Robotic_Arm_Report.pdf" class="btn">View Report</a>
+        </div>
+        <!-- Project Card 8 -->
+        <div class="project-card coding">
+            <img class="project-image" src="Media/webdev_project.jpg" alt="Personal Portfolio Website" loading="lazy">
+            <h3>Personal Portfolio Website</h3>
+            <p><strong>Duration:</strong> Ongoing</p>
+            <p><strong>Overview:</strong> Designed and developed a responsive portfolio website to showcase my projects and skills.</p>
+            <p><strong>Skills Used:</strong> HTML, CSS, JavaScript, Responsive Design</p>
+            <p><strong>Impact:</strong> Enhanced online presence and provided a platform for potential collaborators and employers to view my work.</p>
+            <a href="https://yourportfolio.com" class="btn">Visit Website</a>
+        </div>
+        <!-- Add more project cards as needed -->
+    </div>
+</section>
+
+
+        <!-- Filmmaking Section -->
+        <section id="filmmaking" class="filmmaking">
+            <h2>Filmmaking & Editing</h2>
+            <div class="video-gallery">
+
+          <div class="video-item">
+              <iframe src="https://drive.google.com/file/d/1tPRS00bQLW0hbUcZqMsa-hmsq4VgPL88/preview" width="500" height="300" allow="autoplay"></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://drive.google.com/file/d/1uYxGCfXUtzPc0I1RNn7RSOeMN-SP6O6d/preview" width="500" height="300" allow="autoplay"></iframe>
+        </div>
+          <div class="video-item">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_2kgcAOvl3/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/C_2kgcAOvl3/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/C_2kgcAOvl3/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Inter IIT Tech Meet (@interiit_techmeet)</a></p></div></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <div class="video-item">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cs60OWLu3hF/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/Cs60OWLu3hF/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/Cs60OWLu3hF/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Dhruv Patel (@dhandhe_ki_bhasha)</a></p></div></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+        </div>
+
+      </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" required>
+                        <label>Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" required></textarea>
+                        <label>Message</label>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="thanks">
+                <p>Thanks for stopping by,</p>
+                <p>I'm always eager to learn and explore new opportunities to grow.</p>
+            </div>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/dhruv-patel-8a5a74222/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/dhruv_patel953/" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <!-- Add more social links if needed -->
+            </div>
+            <p>&copy; 2024 Dhruv Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

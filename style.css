@@ -20,7 +20,10 @@ header{
     overflow: hidden;
     z-index: 1000;
     background-image: linear-gradient(to right, #1c1a27 , #161828);
+    background-color: #cce2da;
   }
+
+  
 nav {  
     overflow: hidden;
     display: flex;
@@ -164,13 +167,14 @@ main {
 }
 
 .about-me{
-  margin-top: 220px;
+  margin-top: 300px;
+  display: flex;
 }
 
 .bio-container {
     width: 100%;
     padding: 50px 0px;
-    margin: auto;
+    margin-top: -100px;
 }
 
 .timeline {
@@ -717,7 +721,11 @@ main {
 /* Resume container for positioning */
 .resume-container {
     text-align: center;
-    margin: 50px;
+    position: sticky;
+    margin: 0 -100px;
+    padding: 20px;
+    top: 80px;
+    background: #FAFAF6;
 }
 
 /* Styling for the download button */
@@ -759,4 +767,13 @@ main {
         padding: 12px 25px;
         font-size: 16px;
     }
+}
+
+.about-content{
+  width: 700px;
+}
+.dp{
+  width: 300px;
+  border-radius: 0 50px 0 50px;
+  margin-left: 50px;
 }
