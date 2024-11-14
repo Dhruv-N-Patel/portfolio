@@ -1,167 +1,148 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Similar CSS as before but with improved spacing and styling */
+
+body {
+    display: flex;
     font-family: Arial, sans-serif;
 }
 
-/* Colors and Styles */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #f0f4f7;
-    --accent-color: #ff4757;
-    --text-color: #333;
-}
-
-/* Layout Styling */
-body {
-    display: flex;
-}
-
-.top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
-
-.top-nav .search-bar {
-    width: 300px;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-}
-
 .sidebar {
-    width: 200px;
-    background: var(--secondary-color);
-    padding-top: 80px;
+    width: 250px;
+    background-color: #2f2f2f;
+    color: #fff;
+    padding: 20px;
     height: 100vh;
-    position: fixed;
-    top: 0;
-    bottom: 0;
 }
 
-.sidebar-item {
-    padding: 15px;
-    cursor: pointer;
-    color: var(--text-color);
-}
-
-.sidebar-item.active {
-    background: var(--primary-color);
-    color: white;
-}
-
-.dashboard-content {
-    margin-left: 200px;
-    margin-top: 80px;
-    padding: 20px;
-    width: calc(100% - 200px);
-}
-
-/* Key Metrics */
-.key-metrics h2 {
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.metrics-container {
-    display: flex;
-    gap: 20px;
-}
-
-.metric-card {
-    background: white;
-    padding: 20px;
-    width: 150px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.metric-card p {
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.metric-card span {
+.sidebar .logo {
     font-size: 24px;
-    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
-/* Impact Simulation */
-.impact-simulation {
-    margin-top: 30px;
+.sidebar ul {
+    list-style: none;
 }
 
-.simulation-container {
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main {
+    flex: 1;
+    background-color: #f5f5f5;
+}
+
+.header {
     display: flex;
-    gap: 20px;
-}
-
-.config-panel, .summary-panel, .map-panel {
-    background: white;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    border-radius: 8px;
-    width: 30%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
-.config-panel h3, .summary-panel h3, .map-panel h3 {
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.config-panel label {
-    display: block;
-    margin: 10px 0 5px;
-    color: var(--text-color);
-}
-
-.config-panel input, .config-panel button {
-    width: 100%;
+.header .account-btn {
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-.run-simulation {
-    background: var(--primary-color);
-    color: white;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
-.summary-item {
-    margin-bottom: 10px;
+.content {
+    padding: 20px;
 }
 
-.summary-item p {
-    color: var(--text-color);
+.network-performance, .provider-change, .suggestions, .analysis {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.summary-item span {
-    font-size: 20px;
-    color: var(--accent-color);
+h3 {
+    margin-bottom: 15px;
 }
 
-.map-placeholder {
-    height: 200px;
-    background: #e0e0e0;
+.gauge {
+    width: 100%;
+    height: 150px;
+    background-color: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
-    font-size: 16px;
-    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.performance-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.performance-list li {
+    margin-bottom: 5px;
+}
+
+.quality-metrics table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.quality-metrics table, .quality-metrics th, .quality-metrics td {
+    border: 1px solid #ddd;
+}
+
+.quality-metrics td, .quality-metrics th {
+    padding: 10px;
+    text-align: center;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.blue { background-color: blue; }
+.red { background-color: red; }
+.green { background-color: green; }
+.yellow { background-color: yellow; }
+
+.provider-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.provider-table th, .provider-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.remove-btn, .add-btn, .process-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.process-btn {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.analysis {
+    display: flex;
+    justify-content: space-between;
+}
+
+.historic-analysis, .network-map {
+    width: 48%;
 }

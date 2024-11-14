@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Morphing Animation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+  <script>
+    // Create scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create initial shape (sphere) and material
+    const shapes = [
+      new THREE.SphereGeometry(1, 32, 32),
+      new THREE.BoxGeometry(1.5, 1.5, 1.5),
+      new THREE.TorusGeometry(1, 0.4, 16, 100)
+    ];
+    const colors = [0xff0000, 0x00ff00, 0x0000ff]; // Red, Green, Blue
+    let shapeIndex = 0;
+
+    const material = new THREE.MeshStandardMaterial({ color: colors[shapeIndex], roughness: 0.5, metalness: 0.5 });
+    let morphingShape = new THREE.Mesh(shapes[shapeIndex], material);
+    scene.add(morphingShape);
+
+    // Lighting setup
+    const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft ambient light
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(5, 5, 5);
+    scene.add(ambientLight, pointLight);
+
+    // Set initial camera position
+    camera.position.z = 5;
+
+    // Frame counter for morphing control
+    let frameCounter = 0;
+    const morphInterval = 100; // Change shape every 100 frames
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Increment frame counter
+      frameCounter++;
+
+      // Change shape and color at the defined interval
+      if (frameCounter % morphInterval === 0) {
+        shapeIndex = (shapeIndex + 1) % shapes.length;
+
+        // Clean up old geometry and assign new shape
+        morphingShape.geometry.dispose();
+        morphingShape.geometry = shapes[shapeIndex];
+        morphingShape.material.color.setHex(colors[shapeIndex]);
+      }
+
+      // Rotate the shape smoothly
+      morphingShape.rotation.x += 0.01;
+      morphingShape.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle window resizing
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>

@@ -3,99 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareIQ Predictive Impact Dashboard</title>
+    <title>UCare Dashboard</title>
     <link rel="stylesheet" href="styless.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <div class="logo">CareIQ</div>
-        <input type="text" class="search-bar" placeholder="Search providers, members, metrics...">
-        <div class="nav-icons">
-            <div class="notification-icon">🔔</div>
-            <div class="user-icon">👤 My Account</div>
+    <div class="sidebar">
+        <div class="logo">UCare</div>
+        <ul>
+            <li><a href="#">Dashboard Home</a></li>
+            <li><a href="#">Provider Performance</a></li>
+            <li><a href="#">Member Overview</a></li>
+            <li><a href="#">Impact Simulator</a></li>
+            <li><a href="#">Reports & Analytics</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="header">
+            <span>Dashboard List</span>
+            <span class="notifications">&#128276;</span>
+            <button class="account-btn">My Account</button>
+        </div>
+        <div class="content">
+            <div class="network-performance">
+                <div class="summary">
+                    <h3>Network Performance Summary</h3>
+                    <div class="gauge">
+                        <div class="gauge-text">M Net Score: 650</div>
+                    </div>
+                    <ul class="performance-list">
+                        <li>City Hospital - 16</li>
+                        <li>City Hospital - 16</li>
+                        <li>City Hospital - 16</li>
+                        <li>City Hospital - 16</li>
+                    </ul>
+                </div>
+                <div class="quality-metrics">
+                    <h3>Provider Quality Metrics</h3>
+                    <table>
+                        <tr>
+                            <th>Provider Name</th>
+                            <th>Provider Quality Score</th>
+                        </tr>
+                        <tr><td>City Hospital</td><td class="color-box blue"></td></tr>
+                        <tr><td>Hero Hospital</td><td class="color-box red"></td></tr>
+                        <tr><td>Set Clinic</td><td class="color-box green"></td></tr>
+                        <tr><td>Green Valley Medical</td><td class="color-box yellow"></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="provider-change">
+                <h3>Provider Change Simulation</h3>
+                <input type="text" placeholder="Search">
+                <table class="provider-table">
+                    <tr>
+                        <th>Provider Name</th>
+                        <th>Quality Index Score</th>
+                        <th>Readmission Rate</th>
+                        <th>Complication Rate</th>
+                        <th>Wait Time</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr><td>City Hospital</td><td>100</td><td>-</td><td>-</td><td>-</td><td><button class="remove-btn">Remove</button></td></tr>
+                    <tr><td>Hero Hospital</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button class="remove-btn">Remove</button></td></tr>
+                    <tr><td>Set Clinic</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button class="remove-btn">Remove</button></td></tr>
+                    <tr><td>Downtown Clinic</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button class="add-btn">Add</button></td></tr>
+                </table>
+                <button class="process-btn">Process</button>
+            </div>
+            <div class="suggestions">
+                <h3>Suggestions</h3>
+                <ul>
+                    <li>Average Distance to Provider</li>
+                    <li>Average Distance to Provider</li>
+                    <li>Average Distance to Provider</li>
+                </ul>
+            </div>
+            <div class="analysis">
+                <div class="historic-analysis">
+                    <h3>Historic Analysis</h3>
+                    <canvas id="historicChart" width="400" height="300"></canvas>
+                </div>
+                <div class="network-map">
+                    <h3>Network Map</h3>
+                    <iframe 
+                        width="400" 
+                        height="300" 
+                        frameborder="0" 
+                        style="border:0" 
+                        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Healthcare+Provider" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <div class="sidebar-item active">Dashboard Home</div>
-        <div class="sidebar-item">Provider Insights</div>
-        <div class="sidebar-item">Member Metrics</div>
-        <div class="sidebar-item">Impact Simulator</div>
-        <div class="sidebar-item">Reports & Analytics</div>
-    </div>
-
-    <!-- Main Dashboard Content -->
-    <div class="dashboard-content">
-
-        <!-- Key Metrics Overview -->
-        <section class="key-metrics">
-            <h2>Network Performance Summary</h2>
-            <div class="metrics-container">
-                <div class="metric-card" id="claims-cost">
-                    <p>Claims Cost Impact</p>
-                    <span>$1,200,000</span>
-                </div>
-                <div class="metric-card" id="readmission-rate">
-                    <p>Readmission Rate</p>
-                    <span>12%</span>
-                </div>
-                <div class="metric-card" id="member-satisfaction">
-                    <p>Member Satisfaction</p>
-                    <span>84%</span>
-                </div>
-                <div class="metric-card" id="travel-distance">
-                    <p>Avg. Travel Distance</p>
-                    <span>5.3 miles</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Impact Simulation Panel -->
-        <section class="impact-simulation">
-            <h2>Impact Simulation</h2>
-            <div class="simulation-container">
-                <!-- Scenario Configuration -->
-                <div class="config-panel">
-                    <h3>Scenario Configuration</h3>
-                    <label>Add Provider</label>
-                    <input type="text" placeholder="Provider Name">
-                    <label>Max Travel Distance</label>
-                    <input type="range" min="1" max="50" value="10">
-                    <label>Max Wait Time (mins)</label>
-                    <input type="number" placeholder="Minutes">
-                    <button class="run-simulation">Run Simulation</button>
-                </div>
-
-                <!-- Impact Summary Display -->
-                <div class="summary-panel">
-                    <h3>Impact Summary</h3>
-                    <div class="summary-item">
-                        <p>Projected Claims Cost Impact</p>
-                        <span>+5%</span>
-                    </div>
-                    <div class="summary-item">
-                        <p>Readmission Rate Change</p>
-                        <span>-2%</span>
-                    </div>
-                    <div class="summary-item">
-                        <p>Member Satisfaction Impact</p>
-                        <span>+3%</span>
-                    </div>
-                </div>
-
-                <!-- Map Visualization -->
-                <div class="map-panel">
-                    <h3>Visual Impact Map</h3>
-                    <div class="map-placeholder">Map Visualization Area</div>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>

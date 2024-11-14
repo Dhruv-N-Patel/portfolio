@@ -162,9 +162,10 @@ section h2::after {
 
 .about-image img {
     width: 300px;
-    border-radius: 50%;
+    border-radius: 100px 100px 0 100px;
     transition: transform 0.3s;
 }
+
 
 .about-image img:hover {
     transform: scale(1.05);
@@ -662,4 +663,31 @@ footer {
         padding: 12px 25px;
         font-size: 16px;
     }
+}
+.contact-card {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.contact-info {
+    font-size: 1em;
+    color: #555;
+    margin: 8px 0;
+}
+.contact-info a {
+    color: #0073e6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.contact-info a:hover {
+    color: #005bb5;
 }

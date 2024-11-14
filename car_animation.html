@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced 3D Car Animation</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Loaders and Controls -->
+  <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://threejs.org/examples/js/libs/dat.gui.min.js"></script>
+  <!-- Perlin Noise Generator -->
+  <script src="https://cdn.jsdelivr.net/gh/stegu/perlin-noise/simplex-noise.js"></script>
+</head>
+<body>
+  <script>
+    // Scene, Camera, and Renderer Setup
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0xbfd1e5, 0.002);
+
+    const camera = new THREE.PerspectiveCamera(
+      60, window.innerWidth / window.innerHeight, 0.1, 1000
+    );
+    camera.position.set(0, 5, -10);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild(renderer.domElement);
+
+    // Orbit Controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Lights
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
+    hemiLight.position.set(0, 200, 0);
+    scene.add(hemiLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight.position.set(-100, 100, -100);
+    dirLight.castShadow = true;
+    dirLight.shadow.camera.top = 50;
+    dirLight.shadow.camera.bottom = -50;
+    dirLight.shadow.camera.left = -50;
+    dirLight.shadow.camera.right = 50;
+    scene.add(dirLight);
+
+    // Skybox
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load([
+      'skybox/px.jpg',
+      'skybox/nx.jpg',
+      'skybox/py.jpg',
+      'skybox/ny.jpg',
+      'skybox/pz.jpg',
+      'skybox/nz.jpg',
+    ]);
+    scene.background = texture;
+
+    // Terrain Generation
+    const terrainSize = 500;
+    const terrainSegments = 256;
+    const terrainGeometry = new THREE.PlaneGeometry(
+      terrainSize, terrainSize, terrainSegments, terrainSegments
+    );
+    const simplex = new SimplexNoise();
+    const maxHeight = 10;
+
+    // Modify vertices for heightmap
+    terrainGeometry.vertices.forEach(vertex => {
+      const x = vertex.x / terrainSize;
+      const y = vertex.y / terrainSize;
+      vertex.z = simplex.noise2D(x * 10, y * 10) * maxHeight;
+    });
+    terrainGeometry.computeVertexNormals();
+    terrainGeometry.rotateX(-Math.PI / 2);
+
+    const terrainMaterial = new THREE.MeshLambertMaterial({
+      color: 0x91c483,
+      side: THREE.DoubleSide
+    });
+    const terrain = new THREE.Mesh(terrainGeometry, terrainMaterial);
+    terrain.receiveShadow = true;
+    scene.add(terrain);
+
+    // Road Creation
+    const roadPath = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-200, 0, -200),
+      new THREE.Vector3(-100, 0, 0),
+      new THREE.Vector3(0, 0, 100),
+      new THREE.Vector3(100, 0, 0),
+      new THREE.Vector3(200, 0, -200),
+    ]);
+    const roadGeometry = new THREE.TubeGeometry(roadPath, 100, 2, 8, false);
+    const roadMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
+    const road = new THREE.Mesh(roadGeometry, roadMaterial);
+    road.receiveShadow = true;
+    scene.add(road);
+
+    // Car Loading
+    let car;
+    const gltfLoader = new THREE.GLTFLoader();
+    gltfLoader.load('models/car/car.gltf', function (gltf) {
+      car = gltf.scene;
+      car.scale.set(0.5, 0.5, 0.5);
+      car.castShadow = true;
+      scene.add(car);
+    });
+
+    // Vegetation (Trees)
+    function createTree(x, z) {
+      const trunkGeometry = new THREE.CylinderGeometry(0.5, 0.5, 5);
+      const trunkMaterial = new THREE.MeshLambertMaterial({ color: 0x8b5a2b });
+      const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+      trunk.position.set(x, 2.5, z);
+      trunk.castShadow = true;
+
+      const leavesGeometry = new THREE.SphereGeometry(2, 8, 8);
+      const leavesMaterial = new THREE.MeshLambertMaterial({ color: 0x228b22 });
+      const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
+      leaves.position.set(x, 6, z);
+      leaves.castShadow = true;
+
+      scene.add(trunk);
+      scene.add(leaves);
+    }
+
+    // Add Trees Randomly
+    for (let i = 0; i < 200; i++) {
+      const x = (Math.random() - 0.5) * terrainSize;
+      const z = (Math.random() - 0.5) * terrainSize;
+      if (!roadPath.getPointAt((x + terrainSize / 2) / terrainSize).equals(new THREE.Vector3(x, 0, z))) {
+        createTree(x, z);
+      }
+    }
+
+    // Particle System for Dust
+    const particleCount = 500;
+    const particles = new THREE.Geometry();
+    const pMaterial = new THREE.PointsMaterial({
+      color: 0xaaaaaa,
+      size: 0.2,
+      transparent: true
+    });
+    for (let i = 0; i < particleCount; i++) {
+      const pX = 0, pY = 0, pZ = 0;
+      const particle = new THREE.Vector3(pX, pY, pZ);
+      particles.vertices.push(particle);
+    }
+    const particleSystem = new THREE.Points(particles, pMaterial);
+    scene.add(particleSystem);
+
+    // Animation Variables
+    let carPosition = 0;
+    const speed = 0.0005;
+    const dayNightCycleSpeed = 0.0001;
+    let dayNightCycle = 0;
+
+    // Main Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Animate Car along the Road
+      if (car) {
+        carPosition += speed;
+        if (carPosition > 1) carPosition = 0;
+        const point = roadPath.getPointAt(carPosition);
+        const tangent = roadPath.getTangentAt(carPosition);
+        car.position.set(point.x, point.y + 1, point.z);
+        car.rotation.y = Math.atan2(tangent.x, tangent.z);
+
+        // Update Particle System for Dust
+        particles.vertices.forEach(p => {
+          p.x += (Math.random() - 0.5) * 0.1;
+          p.y += (Math.random() - 0.5) * 0.1;
+          p.z += (Math.random() - 0.5) * 0.1;
+        });
+        particleSystem.geometry.verticesNeedUpdate = true;
+        const dustParticle = particles.vertices[Math.floor(Math.random() * particleCount)];
+        dustParticle.set(car.position.x, car.position.y, car.position.z);
+      }
+
+      // Day-Night Cycle
+      dayNightCycle += dayNightCycleSpeed;
+      const lightIntensity = (Math.sin(dayNightCycle * Math.PI * 2) + 1) / 2;
+      dirLight.intensity = lightIntensity * 0.8 + 0.2;
+      hemiLight.intensity = lightIntensity * 0.6 + 0.4;
+      scene.fog.color.setHSL(0.6, 0.75, lightIntensity * 0.5 + 0.1);
+
+      // Update Skybox (Optional)
+      // Implement skybox texture change over time if desired.
+
+      // Camera Follow
+      if (car) {
+        camera.position.lerp(
+          new THREE.Vector3(car.position.x + 10, car.position.y + 5, car.position.z + 10),
+          0.05
+        );
+        camera.lookAt(car.position);
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+  </script>
+</body>
+</html>
