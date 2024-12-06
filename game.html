@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rama's Leap</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #70c5ce; /* Sky blue background */
+            overflow: hidden;
+        }
+        canvas {
+            border: 2px solid black;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="500" height="700"></canvas>
+    <script>
+        // Get canvas context
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Load assets
+        const BACKGROUND_IMG = new Image();
+        BACKGROUND_IMG.src = 'ocean.png';  // Ocean background
+        const HANUMAN_IMG = new Image();
+        HANUMAN_IMG.src = 'hanuman.png';  // Hanuman sprite
+        const SCROLL_IMG = new Image();
+        SCROLL_IMG.src = 'scroll.png';  // Scroll sprite
+        const DEMON_IMG = new Image();
+        DEMON_IMG.src = 'demon.png';  // Demon sprite
+        const FIREBALL_IMG = new Image();
+        FIREBALL_IMG.src = 'fireball.png';  // Fireball sprite
+
+        // Game variables
+        const GRAVITY = 0.8;
+        const LEAP_STRENGTH = -5;
+        const SCROLL_RESTORE = 7;
+        const OBSTACLE_SPEED = 2;
+        let energy = 1000;
+        let score = 0;
+        let scrolls_collected = 0;
+        const TARGET_SCROLLS = 10;
+
+        let game_active = false;
+        let game_won = false;
+
+        let hanuman = { x: 100, y: canvas.height / 2, width: 50, height: 50, velocity: 0 };
+        let obstacles = [];
+        let scrolls = [];
+        let obstacle_timer = 0;
+        let scroll_timer = 0;
+
+        // Background variables for parallax
+        let bg_x1 = 0;
+        let bg_x2 = canvas.width;
+
+        // Functions
+        function displayText(text, x, y, color = "white") {
+            ctx.fillStyle = color;
+            ctx.font = "48px sans-serif";
+            ctx.fillText(text, x, y);
+        }
+
+        function createObstacle() {
+            let type = Math.random() < 0.5 ? "demon" : "fireball";
+            let height = Math.random() * (canvas.height - 50);
+            return { x: canvas.width, y: height, type: type, width: 50, height: 50 };
+        }
+
+        function createScroll() {
+            let height = Math.random() * (canvas.height - 50);
+            return { x: canvas.width, y: height, width: 30, height: 30 };
+        }
+
+        function drawBackground() {
+            ctx.drawImage(BACKGROUND_IMG, bg_x1, 0, canvas.width, canvas.height);
+            ctx.drawImage(BACKGROUND_IMG, bg_x2, 0, canvas.width, canvas.height);
+            bg_x1 -= 2;
+            bg_x2 -= 2;
+            if (bg_x1 <= -canvas.width) bg_x1 = canvas.width;
+            if (bg_x2 <= -canvas.width) bg_x2 = canvas.width;
+        }
+
+        function drawElements() {
+            ctx.drawImage(HANUMAN_IMG, hanuman.x, hanuman.y, hanuman.width, hanuman.height);
+            obstacles.forEach(obstacle => {
+                const img = obstacle.type === "fireball" ? FIREBALL_IMG : DEMON_IMG;
+                ctx.drawImage(img, obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            });
+            scrolls.forEach(scroll => {
+                ctx.drawImage(SCROLL_IMG, scroll.x, scroll.y, scroll.width, scroll.height);
+            });
+        }
+
+        function moveElements() {
+            obstacles.forEach(obstacle => obstacle.x -= OBSTACLE_SPEED);
+            scrolls.forEach(scroll => scroll.x -= OBSTACLE_SPEED);
+        }
+
+        function checkCollision() {
+            for (let obstacle of obstacles) {
+                if (hanuman.x < obstacle.x + obstacle.width &&
+                    hanuman.x + hanuman.width > obstacle.x &&
+                    hanuman.y < obstacle.y + obstacle.height &&
+                    hanuman.y + hanuman.height > obstacle.y) {
+                    return true; // Collision with obstacle
+                }
+            }
+            for (let i = 0; i < scrolls.length; i++) {
+                let scroll = scrolls[i];
+                if (hanuman.x < scroll.x + scroll.width &&
+                    hanuman.x + hanuman.width > scroll.x &&
+                    hanuman.y < scroll.y + scroll.height &&
+                    hanuman.y + hanuman.height > scroll.y) {
+                    scrolls.splice(i, 1);
+                    scrolls_collected++;
+                    energy += SCROLL_RESTORE;
+                }
+            }
+            return false;
+        }
+
+        function resetGame() {
+            obstacles = [];
+            scrolls = [];
+            hanuman = { x: 100, y: canvas.height / 2, width: 50, height: 50, velocity: 0 };
+            energy = 1000;
+            score = 0;
+            scrolls_collected = 0;
+        }
+
+        // Game loop
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBackground();
+
+            if (game_active) {
+                hanuman.velocity += GRAVITY/10;
+                hanuman.y += hanuman.velocity;
+
+                obstacle_timer++;
+                if (obstacle_timer > 80) {
+                    obstacle_timer = 0;
+                    obstacles.push(createObstacle());
+                }
+
+                scroll_timer++;
+                if (scroll_timer > 150) {
+                    scroll_timer = 0;
+                    scrolls.push(createScroll());
+                }
+
+                moveElements();
+                obstacles = obstacles.filter(obstacle => obstacle.x > 0);
+                scrolls = scrolls.filter(scroll => scroll.x > 0);
+                if (checkCollision() || energy <= 0) {
+                    game_active = false;
+                } else if (scrolls_collected >= TARGET_SCROLLS) {
+                    game_active = false;
+                    game_won = true;
+                }
+
+                score++;
+
+                drawElements();
+                displayText(`Score: ${score}`, 10, 50);
+                displayText(`Energy: ${energy}`, 10, 100);
+                displayText(`Scrolls: ${scrolls_collected}/${TARGET_SCROLLS}`, 10, 150);
+            } else {
+                if (game_won) {
+                    displayText("You Win!", canvas.width / 2 - 100, canvas.height / 2, "red");
+                } else {
+                    displayText("Game Over", canvas.width / 2 - 100, canvas.height / 2, "red");
+                }
+                displayText("Press SPACE to Retry", canvas.width / 2 - 150, canvas.height / 2 + 50, "white");
+            }
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Start game when space is pressed
+        window.addEventListener('keydown', (event) => {
+            if (event.code === "Space") {
+                if (!game_active) {
+                    game_active = true;
+                    resetGame();
+                } else {
+                    hanuman.velocity = LEAP_STRENGTH;
+                    energy -= 10;
+                }
+            }
+        });
+
+        // Start the game loop
+        gameLoop();
+    </script>
+</body>
+</html>
