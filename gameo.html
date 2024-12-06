@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Game Generator</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-size: 16px;
+      background-image: url('Media/bd.jpg');
+      background-size: cover;  /* Ensures the image covers the whole screen */
+  background-position: center center; /* Center the image */
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    }
+
+    h1, h2 {
+      font-family: 'Segoe UI', sans-serif;
+      margin-bottom: 20px;
+      color: #ff5733;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+    }
+
+    .header .logo {
+      height: 50px;
+    }
+
+    .header .profile button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .header .profile button:hover {
+      background-color: #ff5733;
+    }
+
+    /* Main Screens */
+    .screen {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 80px;
+      padding: 20px;
+      background-color: #1d1d1d;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .main-button {
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 15px 0;
+      border-radius: 5px;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .main-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Input Fields */
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background-color: #2a2a2a;
+      color: #fff;
+      resize: none;
+      transition: border 0.3s;
+    }
+
+    textarea:focus {
+      border: 1px solid #ff5733;
+    }
+
+    input[type="range"], select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #ff5733;
+      border-radius: 5px;
+      transition: width 2s;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      color: #ff5733;
+    }
+
+    footer a {
+      color: #ff5733;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Buttons and Input Customizations */
+    .mood-selector input, .customization-options select {
+      margin-top: 10px;
+    }
+
+    .game-preview img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .interaction-button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .interaction-button:hover {
+      background-color: #218838;
+    }
+
+    .back-button {
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #ff5733;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home Screen -->
+  <section class="screen home-screen active">
+    <header class="header">
+      <img src="Media/game_logo.jpg" alt="Logo" class="logo">
+      <div class="profile">
+        <button>Profile</button>
+      </div>
+    </header>
+    <main>
+      <h1>Welcome to Interactive Game Generator</h1>
+      <button class="main-button" onclick="switchToPromptScreen()">Create a New Game</button>
+      <button class="main-button">Browse Saved Games</button>
+      <button class="main-button">Explore Templates</button>
+    </main>
+    <footer>
+      <a href="#">How It Works</a>
+      <a href="#">Feedback</a>
+      <a href="#">Support</a>
+    </footer>
+  </section>
+
+  <!-- Prompt Input Screen -->
+  <section class="screen prompt-input-screen">
+    <header class="header">
+      <button class="back-button" onclick="switchToHomeScreen()">Back</button>
+      <h2>Create Your Personalized Game</h2>
+    </header>
+    <main>
+      <textarea class="prompt-input" placeholder="Describe your game..."></textarea>
+      <div class="mood-selector">
+        <label for="mood">Mood:</label>
+        <input type="range" id="mood" min="1" max="10">
+      </div>
+      <div class="customization-options">
+        <label for="story-type">Story Type:</label>
+        <select id="story-type">
+          <option value="fantasy">Fantasy</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="historical">Historical</option>
+        </select>
+        <label>
+          <input type="checkbox"> Include puzzles
+        </label>
+        <label>
+          <input type="checkbox"> Have magic
+        </label>
+        <label>
+          <input type="checkbox"> Heroic journey
+        </label>
+      </div>
+      <button class="main-button" onclick="switchToAiGenerationScreen()">Generate Game</button>
+    </main>
+  </section>
+
+  <!-- AI Generation Screen -->
+  <section class="screen ai-generation-screen">
+    <header class="header">
+      <button class="back-button" onclick="switchToPromptScreen()">Back</button>
+      <h2>Generating Your Game...</h2>
+    </header>
+    <main>
+      <div class="progress">
+        <div class="progress-bar"></div>
+        <p>Estimated Time: 3 minutes</p>
+      </div>
+      <div class="game-preview">
+        <h3>Preview Teaser:</h3>
+        <img src="Media/game1.jpg" alt="Game Preview">
+      </div>
+      <button class="main-button">Cancel</button>
+    </main>
+  </section>
+
+  <!-- Gameplay Screen -->
+  <section class="screen gameplay-screen">
+    <header class="header">
+      <h2>Game: Magical Adventure</h2>
+      <button class="pause-button">Pause</button>
+    </header>
+    <main>
+      <div class="gameplay-area">
+        <p>Your game is loading... The adventure begins!</p>
+        <button class="interaction-button">Interact</button>
+      </div>
+    </main>
+  </section>
+
+  <script>
+    function switchToPromptScreen() {
+      document.querySelector('.home-screen').classList.remove('active');
+      document.querySelector('.prompt-input-screen').classList.add('active');
+    }
+
+    function switchToAiGenerationScreen() {
+      document.querySelector('.prompt-input-screen').classList.remove('active');
+      document.querySelector('.ai-generation-screen').classList.add('active');
+      setTimeout(() => {
+        document.querySelector('.ai-generation-screen').classList.remove('active');
+        document.querySelector('.gameplay-screen').classList.add('active');
+      }, 3000);
+    }
+
+    function switchToHomeScreen() {
+      document.querySelector('.prompt-input-screen').classList.remove('active');
+      document.querySelector('.home-screen').classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
